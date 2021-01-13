@@ -45,6 +45,7 @@ function App() {
         onChange={handleTotalAmount}
         min={MIN_TOTAL_AMOUNT}
         max={MAX_TOTAL_AMOUNT}
+        isCurrency
       />
       <Input
         label="PLAZO"
