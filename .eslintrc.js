@@ -60,6 +60,7 @@ module.exports = {
     'react/require-default-props': OFF,
     'react/jsx-props-no-spreading': OFF,
     'jsx-a11y/control-has-associated-label': OFF,
+    'jsx-a11y/label-has-associated-control': OFF,
     'jsx-a11y/click-events-have-key-events': OFF,
   },
   settings: {
