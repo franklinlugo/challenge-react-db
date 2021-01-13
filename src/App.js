@@ -3,22 +3,28 @@ import { Layout, Title, Input, Total, ActionButtons } from 'components';
 
 const isNumber = (value) => !Number.isNaN(Number(value));
 
+const INITIAL_TOTAL_AMOUNT = 5000;
+const MIN_TOTAL_AMOUNT = 5000;
+const MAX_TOTAL_AMOUNT = 50000;
+
+const INITIAL_DEADLINE = 3;
+const MIN_INITIAL_DEADLINE = 3;
+const MAX_INITIAL_DEADLINE = 24;
+
+const initialAmount = () => (INITIAL_TOTAL_AMOUNT / INITIAL_DEADLINE).toFixed(2);
+
 function App() {
-  const [totalAmount, setTotalAmount] = React.useState(5000);
-  const [deadline, setdeadline] = React.useState(3);
-  const [amount, setAmount] = React.useState(() => (totalAmount / deadline).toFixed(2));
+  const [totalAmount, setTotalAmount] = React.useState(INITIAL_TOTAL_AMOUNT);
+  const [deadline, setdeadline] = React.useState(INITIAL_DEADLINE);
+  const [amount, setAmount] = React.useState(initialAmount);
 
-  function handleTotalAmount(event) {
-    const { value } = event.target;
-
+  function handleTotalAmount(value) {
     if (isNumber(value)) {
-      setTotalAmount(event.target.value);
+      setTotalAmount(Number(value));
     }
   }
 
-  function handleDeadline(event) {
-    const { value } = event.target;
-
+  function handleDeadline(value) {
     if (isNumber(value)) {
       setdeadline(Number(value));
     }
@@ -32,8 +38,22 @@ function App() {
   return (
     <Layout>
       <Title />
-      <Input label="MONTO TOTAL" htmlFor="totalAmount" value={totalAmount} onChange={handleTotalAmount} />
-      <Input label="PLAZO" htmlFor="deadline" value={deadline} onChange={handleDeadline} />
+      <Input
+        label="MONTO TOTAL"
+        htmlFor="totalAmount"
+        value={totalAmount}
+        onChange={handleTotalAmount}
+        min={MIN_TOTAL_AMOUNT}
+        max={MAX_TOTAL_AMOUNT}
+      />
+      <Input
+        label="PLAZO"
+        htmlFor="deadline"
+        value={deadline}
+        onChange={handleDeadline}
+        min={MIN_INITIAL_DEADLINE}
+        max={MAX_INITIAL_DEADLINE}
+      />
       <Total amount={amount} />
       <ActionButtons />
     </Layout>
