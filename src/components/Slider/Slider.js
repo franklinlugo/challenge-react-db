@@ -6,6 +6,7 @@ import { Container } from './SliderStyles';
 
 const locale = 'es-AR';
 const formatOptions = { style: 'currency', maximumFractionDigits: 0, currency: 'ARS' };
+
 function Slider({ min, max, value, onChange, isCurrency = false }) {
   const formattedMax = isCurrency ? max.toLocaleString(locale, formatOptions) : max;
   const formattedMin = isCurrency ? min.toLocaleString(locale, formatOptions) : min;
