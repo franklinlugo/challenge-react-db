@@ -16,5 +16,7 @@ export const Container = styled.div`
   }
   input {
     grid-area: input;
+    text-align: center;
+    font-weight: 600;
   }
 `;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { number, func, boolean } from 'prop-types';
+import { number, func, bool } from 'prop-types';
 import RCSlider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { Container } from './SliderStyles';
@@ -54,7 +54,7 @@ Slider.propTypes = {
   max: number.isRequired,
   value: number.isRequired,
   onChange: func.isRequired,
-  isCurrency: boolean,
+  isCurrency: bool,
 };
 
 export default Slider;
