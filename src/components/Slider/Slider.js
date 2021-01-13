@@ -5,7 +5,12 @@ import 'rc-slider/assets/index.css';
 import { Container } from './SliderStyles';
 
 const locale = 'es-AR';
-const formatOptions = { style: 'currency', maximumFractionDigits: 0, currency: 'ARS' };
+const formatOptions = {
+  style: 'currency',
+  currency: 'ARS',
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0,
+};
 
 function Slider({ min, max, value, onChange, isCurrency = false }) {
   const formattedMax = isCurrency ? max.toLocaleString(locale, formatOptions) : max;
